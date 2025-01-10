@@ -31,9 +31,9 @@ This section covers how to simulate attacks on the honeypot to analyze its behav
 
 ##Steps:
 1. Monitor logs in real time:
-  ```bash
-  tail -f /home/cowrie/cowrie/var/log/cowrie.log
+   ```bash
+     tail -f /home/cowrie/cowrie/var/log/cowrie.log
 
 2. **Identify suspicious IPs and block them**:
   ```bash
-  aws ec2 revoke-security-group-ingress --group-id <group-id> --protocol tcp --port 2222 --cidr <malicious-ip>/32
+     aws ec2 revoke-security-group-ingress --group-id <group-id> --protocol tcp --port 2222 --cidr <malicious-ip>/32
