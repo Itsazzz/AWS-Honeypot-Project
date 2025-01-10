@@ -42,8 +42,8 @@ AWS EC2 (Elastic Compute Cloud) allows you to create virtual machines. Here's ho
         - **Port 22** for administrative SSH (restricted to my IP).
 4. **Key Pair**: Generated a key pair for secure access and downloaded the .pem file.
 5. **Launch**: Started the instance and noted its **public IPv4 address**.
-
-
+![AWS EC2 Instance Setup](images/Picture1.png)
+![AWS EC2 Instance Setup](images/Picture2.png)
 **2\. Setting Up Cowrie Honeypot**
 
 Cowrie is a popular SSH/Telnet honeypot that logs all interactions. Here’s the setup process:
@@ -98,6 +98,8 @@ ssh -p 2222 anyuser@&lt;public-ip&gt;
 
 This interaction will be logged by Cowrie.
 
+![Cowrie Configuration](images/Picture3.png)
+![Cowrie Configuration](images/Picture4.png)
 
 **Simulating an Attack**
 
@@ -118,6 +120,10 @@ This interaction will be logged by Cowrie.
 6. set RPORT 2222
 7. run
 8. Observed and documented the honeypot’s responses.
+![Hydra attack](images/Picture6.png)
+![Hydra attack](images/Picture5.png)
+
+
 
 **Role of the Defender**
 
@@ -134,8 +140,9 @@ This interaction will be logged by Cowrie.
 4. Blocked malicious IPs using AWS CLI:
 5. aws ec2 revoke-security-group-ingress --group-id &lt;group-id&gt; --protocol tcp --port 2222 --cidr &lt;malicious-ip&gt;/32
 6. Documented attack patterns for analysis.
-
-
+![Find Cowrie log](images/Picture7.png)
+![View Cowrie log](images/Picture8.png)
+![Block Attacker's IP](images/Picture9.png)
 
 
 **Results and Key Insights**
